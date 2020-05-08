@@ -13,7 +13,7 @@ threads                 2
 floorplan
 ( 
   name "map"
-  bitmap "map.png"
+  bitmap "../map.png"
   size [26.4 90.4 1.0]
   pose [0 0 0 0]
 )
