@@ -2,6 +2,8 @@
 <sdf version="1.6">
   <world name="default">
 
+    <plugin name="gazebo_ros_state" filename="libgazebo_ros_state.so"/>
+
     <include>
       <uri>model://ground_plane</uri>
     </include>
@@ -50,9 +52,9 @@
       </include>
     </model>
 
-    <model name="turtlebot3_waffle">
-      
-      <pose>-2.0 -0.5 0.01 0.0 0.0 0.0</pose>
+    <model name="robot">
+
+      <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
 
       <link name="base_footprint"/>
 
@@ -292,7 +294,7 @@
           </inertia>
           <mass>0.1</mass>
         </inertial>
-      
+
         <collision name="wheel_right_collision">
           <pose>0.0 -0.144 0.023 -1.57 0 0</pose>
           <geometry>
@@ -538,7 +540,7 @@
         <xyz_offset>0 0 0</xyz_offset>
         <rpy_offset>0 0 0</rpy_offset>
       </plugin>
-    
+
       <plugin name="turtlebot3_diff_drive" filename="libgazebo_ros_diff_drive.so">
 
         <ros>
@@ -568,6 +570,7 @@
 
         <odometry_topic>odom</odometry_topic>
         <odometry_frame>odom</odometry_frame>
+        <odometry_source>0</odometry_source>
         <robot_base_frame>base_footprint</robot_base_frame>
 
       </plugin>
