@@ -48,15 +48,15 @@
     <color rgba="1.0 1.0 1.0 1.0"/>
   </material>
 
-  <link name="base_footprint"/>
+  <link name="base_footprint_realistic"/>
 
   <joint name="base_joint" type="fixed">
-    <parent link="base_footprint"/>
-    <child link="base_link" />
+    <parent link="base_footprint_realistic"/>
+    <child link="base_link_realistic" />
     <origin xyz="0 0 0.010" rpy="0 0 0"/>
   </joint>
 
-  <link name="base_link">
+  <link name="base_link_realistic">
     <visual>
       <origin xyz="-0.064 0 0.0" rpy="0 0 0"/>
       <geometry>
@@ -82,13 +82,13 @@
   </link>
 
   <joint name="wheel_left_joint" type="continuous">
-    <parent link="base_link"/>
-    <child link="wheel_left_link"/>
+    <parent link="base_link_realistic"/>
+    <child link="wheel_left_link_realistic"/>
     <origin xyz="0.0 0.144 0.023" rpy="-1.57 0 0"/>
     <axis xyz="0 0 1"/>
   </joint>
 
-  <link name="wheel_left_link">
+  <link name="wheel_left_link_realistic">
     <visual>
       <origin xyz="0 0 0" rpy="1.57 0 0"/>
       <geometry>
@@ -114,13 +114,13 @@
   </link>
 
   <joint name="wheel_right_joint" type="continuous">
-    <parent link="base_link"/>
-    <child link="wheel_right_link"/>
+    <parent link="base_link_realistic"/>
+    <child link="wheel_right_link_realistic"/>
     <origin xyz="0.0 -0.144 0.023" rpy="-1.57 0 0"/>
     <axis xyz="0 0 1"/>
   </joint>
 
-  <link name="wheel_right_link">
+  <link name="wheel_right_link_realistic">
     <visual>
       <origin xyz="0 0 0" rpy="1.57 0 0"/>
       <geometry>
@@ -146,12 +146,12 @@
   </link>
 
   <joint name="caster_back_right_joint" type="fixed">
-    <parent link="base_link"/>
-    <child link="caster_back_right_link"/>
+    <parent link="base_link_realistic"/>
+    <child link="caster_back_right_link_realistic"/>
     <origin xyz="-0.177 -0.064 -0.004" rpy="-1.57 0 0"/>
   </joint>
 
-  <link name="caster_back_right_link">
+  <link name="caster_back_right_link_realistic">
     <collision>
       <origin xyz="0 0.001 0" rpy="0 0 0"/>
       <geometry>
@@ -169,12 +169,12 @@
   </link>
 
   <joint name="caster_back_left_joint" type="fixed">
-    <parent link="base_link"/>
-    <child link="caster_back_left_link"/>
+    <parent link="base_link_realistic"/>
+    <child link="caster_back_left_link_realistic"/>
     <origin xyz="-0.177 0.064 -0.004" rpy="-1.57 0 0"/>
   </joint>
 
-  <link name="caster_back_left_link">
+  <link name="caster_back_left_link_realistic">
     <collision>
       <origin xyz="0 0.001 0" rpy="0 0 0"/>
       <geometry>
@@ -192,20 +192,20 @@
   </link>
 
   <joint name="imu_joint" type="fixed">
-    <parent link="base_link"/>
-    <child link="imu_link"/>
+    <parent link="base_link_realistic"/>
+    <child link="imu_link_realistic"/>
     <origin xyz="0.0 0 0.068" rpy="0 0 0"/>
   </joint>
 
-  <link name="imu_link"/>
+  <link name="imu_link_realistic"/>
 
   <joint name="scan_joint" type="fixed">
-    <parent link="base_link"/>
-    <child link="base_scan"/>
+    <parent link="base_link_realistic"/>
+    <child link="base_scan_realistic"/>
     <origin xyz="-0.064 0 0.122" rpy="0 0 0"/>
   </joint>
 
-  <link name="base_scan">
+  <link name="base_scan_realistic">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
@@ -232,11 +232,11 @@
 
   <joint name="camera_joint" type="fixed">
     <origin xyz="0.064 -0.065 0.094" rpy="0 0 0"/>
-    <parent link="base_link"/>
-    <child link="camera_link"/>
+    <parent link="base_link_realistic"/>
+    <child link="camera_link_realistic"/>
   </joint>
 
-  <link name="camera_link">
+  <link name="camera_link_realistic">
     <visual>
      <origin xyz="0 0 0" rpy="1.57 0 1.57"/>
       <geometry>
@@ -263,31 +263,31 @@
   <joint name="camera_rgb_joint" type="fixed">
     <origin xyz="0.005 0.018 0.013" rpy="0 0 0"/>
     <!-- <origin xyz="${r200_cam_rgb_px} ${r200_cam_rgb_py} ${r200_cam_rgb_pz}" rpy="0 0 0"/> -->
-    <parent link="camera_link"/>
-    <child link="camera_rgb_frame"/>
+    <parent link="camera_link_realistic"/>
+    <child link="camera_rgb_frame_realistic"/>
   </joint>
-  <link name="camera_rgb_frame"/>
+  <link name="camera_rgb_frame_realistic"/>
 
   <joint name="camera_rgb_optical_joint" type="fixed">
     <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
-    <parent link="camera_rgb_frame"/>
-    <child link="camera_rgb_optical_frame"/>
+    <parent link="camera_rgb_frame_realistic"/>
+    <child link="camera_rgb_optical_frame_realistic"/>
   </joint>
-  <link name="camera_rgb_optical_frame"/>
+  <link name="camera_rgb_optical_frame_realistic"/>
 
   <joint name="camera_depth_joint" type="fixed">
     <origin xyz="0.005 0.028 0.013" rpy="0 0 0"/>
     <!-- <origin xyz="${r200_cam_rgb_px} ${r200_cam_rgb_py + r200_cam_depth_offset} ${r200_cam_rgb_pz}" rpy="0 0 0"/> -->
-    <parent link="camera_link"/>
-    <child link="camera_depth_frame"/>
+    <parent link="camera_link_realistic"/>
+    <child link="camera_depth_frame_realistic"/>
   </joint>
-  <link name="camera_depth_frame"/>
+  <link name="camera_depth_frame_realistic"/>
 
   <joint name="camera_depth_optical_joint" type="fixed">
     <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
-    <parent link="camera_depth_frame"/>
-    <child link="camera_depth_optical_frame"/>
+    <parent link="camera_depth_frame_realistic"/>
+    <child link="camera_depth_optical_frame_realistic"/>
   </joint>
-  <link name="camera_depth_optical_frame"/>
+  <link name="camera_depth_optical_frame_realistic"/>
 
 </robot>

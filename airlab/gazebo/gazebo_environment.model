@@ -209,15 +209,23 @@
               <stddev>0.01</stddev>
             </noise>
           </ray>
-          <plugin name="turtlebot3_laserscan" filename="libgazebo_ros_ray_sensor.so">
+          <plugin name="turtlebot3_laserscan_gt" filename="libgazebo_ros_ray_sensor.so">
             <ros>
-                <!-- <namespace>/tb3</namespace> -->
+                <argument>--ros-args</argument>
+                <argument>-r </argument>
+                <argument>~/out:=scan_gt</argument>
+            </ros>
+            <output_type>sensor_msgs/LaserScan</output_type>
+            <frame_name>base_scan_gt</frame_name>
+          </plugin>
+          <plugin name="turtlebot3_laserscan_realistic" filename="libgazebo_ros_ray_sensor.so">
+            <ros>
                 <argument>--ros-args</argument>
                 <argument>-r </argument>
                 <argument>~/out:=scan</argument>
             </ros>
             <output_type>sensor_msgs/LaserScan</output_type>
-            <frame_name>base_scan</frame_name>
+            <frame_name>base_scan_realistic</frame_name>
           </plugin>
         </sensor>
       </link>
@@ -246,7 +254,7 @@
             </cylinder>
           </geometry>
           <surface>
-            <!-- This friction pamareter don't contain reliable data!! -->
+            <!-- This friction parameter don't contain reliable data!! -->
             <friction>
               <ode>
                 <mu>100000.0</mu>
@@ -304,7 +312,7 @@
             </cylinder>
           </geometry>
           <surface>
-            <!-- This friction pamareter don't contain reliable data!! -->
+            <!-- This friction parameter don't contain reliable data!! -->
             <friction>
               <ode>
                 <mu>100000.0</mu>
@@ -568,10 +576,20 @@
         <publish_odom_tf>true</publish_odom_tf>
         <publish_wheel_tf>false</publish_wheel_tf>
 
-        <odometry_topic>odom</odometry_topic>
-        <odometry_frame>odom</odometry_frame>
-        <odometry_source>0</odometry_source>
-        <robot_base_frame>base_footprint</robot_base_frame>
+        <odometry_topic>odom_realistic</odometry_topic>
+        <odometry_frame>odom_realistic</odometry_frame>
+
+        <publish_ground_truth_tf>true</publish_ground_truth_tf>
+        <ground_truth_parent_frame>odom</ground_truth_parent_frame>  <!-- currently (Eloquent) odom and base_link are hardcoded in the navigation stack (recoveries and controller) >:C -->
+        <ground_truth_robot_base_frame>base_footprint_gt</ground_truth_robot_base_frame>
+
+        <odometry_source>2</odometry_source>
+        <alpha1>0.07</alpha1>
+        <alpha2>0.07</alpha2>
+        <alpha3>0.02</alpha3>
+        <alpha4>0.02</alpha4>
+
+        <robot_base_frame>base_footprint_realistic</robot_base_frame>
 
       </plugin>
 
