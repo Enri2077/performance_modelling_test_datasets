@@ -157,15 +157,6 @@
             <stddev>0.01</stddev>
           </noise>
         </ray>
-        <plugin name="turtlebot3_laserscan_gt" filename="libgazebo_ros_ray_sensor.so">
-          <ros>
-              <argument>--ros-args</argument>
-              <argument>-r </argument>
-              <argument>~/out:=scan_gt</argument>
-          </ros>
-          <output_type>sensor_msgs/LaserScan</output_type>
-          <frame_name>base_scan_gt</frame_name>
-        </plugin>
         <plugin name="turtlebot3_laserscan_realistic" filename="libgazebo_ros_ray_sensor.so">
           <ros>
               <argument>--ros-args</argument>
@@ -174,6 +165,37 @@
           </ros>
           <output_type>sensor_msgs/LaserScan</output_type>
           <frame_name>base_scan</frame_name>
+        </plugin>
+      </sensor>
+
+      <sensor name="lidar_sensor_gt" type="ray">
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <pose>-0.064 0 0.121 0 0 0</pose>
+        <update_rate>5</update_rate>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>360</samples>
+              <resolution>1.000000</resolution>
+              <min_angle>-3.14</min_angle>
+              <max_angle>3.14</max_angle>
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.120000</min>
+            <max>60.0</max>
+            <resolution>0.015000</resolution>
+          </range>
+        </ray>
+        <plugin name="turtlebot3_laserscan_gt" filename="libgazebo_ros_ray_sensor.so">
+          <ros>
+              <argument>--ros-args</argument>
+              <argument>-r </argument>
+              <argument>~/out:=scan_gt</argument>
+          </ros>
+          <output_type>sensor_msgs/LaserScan</output_type>
+          <frame_name>base_scan_gt</frame_name>
         </plugin>
       </sensor>
 
