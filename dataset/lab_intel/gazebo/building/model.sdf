@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<sdf version='1.5'>
+
+    <model name='extruded_map'>
+      <static>1</static>
+      <link name='map_origin'>
+
+        <collision name='map_walls'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://lab_intel/data/meshes/extruded_map.dae</uri>
+          </mesh>
+        </geometry>
+        <max_contacts>10</max_contacts>
+        <surface>
+          <bounce/>
+          <friction>
+            <ode/>
+          </friction>
+          <contact>
+            <ode/>
+          </contact>
+        </surface>
+      </collision>
+
+      <visual name='map_walls'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://lab_intel/data/meshes/extruded_map.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/White</name>
+          </script>
+        </material>
+      </visual>
+
+    </link>
+  </model>
+
+</sdf>

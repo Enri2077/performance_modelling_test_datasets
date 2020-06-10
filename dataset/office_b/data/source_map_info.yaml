@@ -1,0 +1,17 @@
+robot: 
+  pose: 
+    x: 10
+    y: -11
+    z: 0
+    theta: 0
+map: 
+  pose: 
+    x: 0
+    y: 0
+    z: 0
+    theta: 0
+  size: 
+    x: 60
+    y: 24.5
+    z: 1
+  resolution: 0.025
