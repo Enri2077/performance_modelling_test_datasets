@@ -2,6 +2,8 @@
 <sdf version="1.6">
   <world name="default">
 
+    <plugin name="gazebo_ros_state" filename="libgazebo_ros_state.so"/>
+
     <include>
       <uri>model://ground_plane</uri>
     </include>
@@ -43,15 +45,15 @@
       </ode>
     </physics>
 
-    <model name="7A-2">
+    <model name="{{environment_name}}">
       <static>1</static>
       <include>
-        <uri>model://7A-2/gazebo/building</uri>
+        <uri>model://{{environment_name}}/gazebo/building</uri>
       </include>
     </model>
 
     <include include_id="robot_model">
-      <uri>model://7A-2/gazebo/robot</uri>
+      <uri>model://{{environment_name}}/gazebo/robot</uri>
     </include>
 
   </world>
