@@ -3,3 +3,5 @@
 *.pgm
 *.png
 *.dae
+*.posegraph
+*.data
