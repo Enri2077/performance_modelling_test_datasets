@@ -535,7 +535,7 @@
       <updateRate>20.0</updateRate>
       <topicName>/base_footprint_gt</topicName>
       <bodyName>base_footprint</bodyName>
-      <frameName>world</frameName>
+      <frameName>map</frameName>
       <xyzOffset>0 0 0</xyzOffset>
       <rpyOffset>0 0 0</rpyOffset>
     </plugin>
