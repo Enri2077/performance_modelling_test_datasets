@@ -43,15 +43,15 @@
       </ode>
     </physics>
 
-    <model name="lab_intel">
+    <model name="turtlebot3_world">
       <static>1</static>
       <include>
-        <uri>model://lab_intel/gazebo/building</uri>
+        <uri>model://turtlebot3_world/gazebo/building</uri>
       </include>
     </model>
 
     <include include_id="robot_model">
-      <uri>model://lab_intel/gazebo/robot</uri>
+      <uri>model://turtlebot3_world/gazebo/robot</uri>
     </include>
 
   </world>
