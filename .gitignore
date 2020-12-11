@@ -7,3 +7,5 @@
 *.data
 *.pkl
 **/complete_free_voronoi_graph_cache.pkl.tar.xz
+**.bag
+**.log
