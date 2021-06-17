@@ -51,6 +51,7 @@
     </model>
 
     <include include_id="robot_model">
+      <!--uri>model://turtlebot3_waffle_performace_modelling</uri-->
       <uri>model://airlab/gazebo/robot</uri>
     </include>
 
