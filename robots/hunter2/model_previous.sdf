@@ -1,14 +1,71 @@
 <?xml version="1.0"?>
 <sdf version="1.6">
+  <world name="default">
 
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
 
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <scene>
+      <shadows>false</shadows>
+    </scene>
+
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame='chassis_link'>0.319654 -0.235002 9.29441 0 1.5138 0.009599</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+
+    <physics type="ode">
+      <real_time_update_rate>1000.0</real_time_update_rate>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>150</iters>
+          <precon_iters>0</precon_iters>
+          <sor>1.400000</sor>
+          <use_dynamic_moi_rescaling>1</use_dynamic_moi_rescaling>
+        </solver>
+        <constraints>
+          <cfm>0.00001</cfm>
+          <erp>0.2</erp>
+          <contact_max_correcting_vel>2000.000000</contact_max_correcting_vel>
+          <contact_surface_layer>0.01000</contact_surface_layer>
+        </constraints>
+      </ode>
+    </physics>
+
+    <!--model name="turtlebot3_world_big">
+      <static>1</static>
+      <include>
+        <uri>model://turtlebot3_world_big</uri>
+      </include>
+    </model-->
+    
     <model name="hunter_v2"> 
       <pose>0.0 0.0 0.7 0.0 0.0 0.0</pose>
       
-      <link name="base_link">
+      <link name="base_link"/>
+      
+      <joint name="chassis_joint" type="fixed">
+        <parent>base_link</parent>
+        <child>chassis_link</child>
+        <pose>0.4775 0 0 0 0 0</pose>
+      </joint>
+
+      
+      <link name="chassis_link">
 
         <inertial>
-          <pose>0.325 0.0 0.27 0.0 0.0 0.0</pose>
+          <pose>0 0 0 0 0 0</pose>
           <inertia>
             <ixx>2.288641</ixx>
             <ixy>0</ixy>
@@ -20,32 +77,32 @@
           <mass>40.0</mass>
         </inertial>
 
-        <collision name="base_link_collision">
-          <pose>0.325 0.0 0.135 0.0 0.0 0.0</pose>
+        <collision name="collision_1">
+          <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>0.98 0.27 0.27</size>
+              <size>0.76 0.27 0.270</size>
             </box>
           </geometry>
         </collision>
-
-        <visual name="base_link_visual">
-          <pose>0.325 0.0 0.135 0.0 0.0 0.0</pose>
+        
+        
+        <visual name="visual_1">
+          <pose>0 0 0 0 0 0</pose>
           <geometry>
             <box>
-              <size>0.98 0.27 0.27</size>
+              <size>0.76 0.27 0.270</size>
             </box>
           </geometry>
         </visual>
-
+        
       </link>
-
       
       <!--rear left wheel-->
       <link name="rear_left_wheel_link">
       
         <inertial>
-          <pose>0.0 0.3025 0.0 -1.5707 0.0 0.0</pose>
+          <pose>0 0 0 0 0 0</pose>
           <inertia>
             <ixx>0.7171</ixx>
             <ixy>0</ixy>
@@ -59,7 +116,7 @@
         
         
         <collision name="rear_left_wheel_collision">
-          <pose>0.0 0.3025 0.0 -1.5707 0.0 0.0</pose>
+          <pose>-0.4775 0.2325 0 -1.5707 0 0</pose>
           <geometry>
             <cylinder>
               <radius>0.165</radius>
@@ -69,7 +126,7 @@
         </collision>
         
         <visual name="rear_left_wheel_visual">
-          <pose>0.0 0.3025 0.0 -1.5707 0.0 0.0</pose>
+          <pose>-0.4775 0.2325 0 -1.5707 0 0</pose>
           <geometry>
             <cylinder>
               <radius>0.165</radius>
@@ -80,9 +137,9 @@
       </link>
       
       <joint name="rear_left_wheel_joint" type="revolute">
-        <parent>base_link</parent>
+        <parent>chassis_link</parent>
         <child>rear_left_wheel_link</child>
-        <pose>0.0 0.3025 0.0 0.0 0.0 0.0</pose>
+        <pose>-0.4775 0.2325 0 0 0 0</pose>
         <axis>
          <xyz>0 1 0</xyz>
         </axis>
@@ -93,7 +150,7 @@
       <link name="rear_right_wheel_link">
       
         <inertial>
-          <pose>0.0 -0.3025 0.0 -1.5707 0.0 0.0</pose>
+          <pose>0 0 0 0 0 0</pose>
           <inertia>
             <ixx>0.7171</ixx>
             <ixy>0</ixy>
@@ -107,7 +164,7 @@
         
         
         <collision name="rear_right_wheel_collision">
-          <pose>0.0 -0.3025 0.0 -1.5707 0.0 0.0</pose>
+          <pose>-0.4775 -0.2325 0 -1.5707 0 0</pose>
           <geometry>
             <cylinder>
               <radius>0.165</radius>
@@ -117,7 +174,7 @@
         </collision>
         
         <visual name="rear_right_wheel_visual">
-          <pose>0.0 -0.3025 0.0 -1.5707 0.0 0.0</pose>
+          <pose>-0.4775 -0.2325 0 -1.5707 0 0</pose>
           <geometry>
             <cylinder>
               <radius>0.165</radius>
@@ -128,9 +185,9 @@
       </link>
       
       <joint name="rear_right_wheel_joint" type="revolute">
-        <parent>base_link</parent>
+        <parent>chassis_link</parent>
         <child>rear_right_wheel_link</child>
-        <pose>0.0 -0.3025 0.0 0.0 0.0 0.0</pose>
+        <pose>-0.4775 -0.2325 0 0 0 0</pose>
         <axis>
          <xyz>0 1 0</xyz>
         </axis>
@@ -138,9 +195,9 @@
       
       <!--front right-->
       <joint name="front_right_steer_joint" type="revolute">
-        <parent>base_link</parent>
+        <parent>chassis_link</parent>
         <child>front_right_steer_link</child>
-        <pose>0.65 -0.3025 0.0 0.0 0.0 0.0</pose>
+        <pose>0.4775 -0.2325 0 0 0 0</pose>
         <axis>
          <xyz>0 0 1</xyz>
          <limit>
@@ -156,7 +213,7 @@
       <joint name="front_right_wheel_joint" type="revolute">
         <parent>front_right_steer_link</parent>
         <child>front_right_wheel_link</child>
-        <pose>0.65 -0.3025 0.0 0.0 0.0 0.0</pose>
+        <pose>0.4775 -0.2325 0 0 0 0</pose>
         <axis>
          <xyz>0 1 0</xyz>
         </axis>
@@ -166,7 +223,7 @@
       <link name="front_right_wheel_link">
       
         <inertial>
-          <pose>0.65 -0.3025 0.0 -1.5707 0.0 0.0</pose>
+          <pose>0 0 0 0 0 0</pose>
           <inertia>
             <ixx>0.007171</ixx>
             <ixy>0</ixy>
@@ -180,7 +237,7 @@
         
         
         <collision name="front_right_wheel_collision">
-          <pose>0.65 -0.3025 0.0 -1.5707 0.0 0.0</pose>
+          <pose>0.4775 -0.2325 0 -1.5707 0 0</pose>
           <geometry>
             <cylinder>
               <radius>0.165</radius>
@@ -190,7 +247,7 @@
         </collision>
         
         <visual name="front_right_wheel_visual">
-          <pose>0.65 -0.3025 0.0 -1.5707 0.0 0.0</pose>
+          <pose>0.4775 -0.2325 0 -1.5707 0 0</pose>
           <geometry>
             <cylinder>
               <radius>0.165</radius>
@@ -203,9 +260,9 @@
        
       <!--front left-->
       <joint name="front_left_steer_joint" type="revolute">
-        <parent>base_link</parent>
+        <parent>chassis_link</parent>
         <child>front_left_steer_link</child>
-        <pose>0.65 0.3025 0.0 0.0 0.0 0.0</pose>
+        <pose>0.4775 0.2325 0 0 0 0</pose>
         <axis>
          <xyz>0 0 1</xyz>
          <limit>
@@ -220,7 +277,7 @@
       <joint name="front_left_wheel_joint" type="revolute">
         <parent>front_left_steer_link</parent>
         <child>front_left_wheel_link</child>
-        <pose>0.65 0.3025 0.0 0.0 0.0 0.0</pose>
+        <pose>0.4775 0.2325 0 0 0 0</pose>
         <axis>
          <xyz>0 1 0</xyz>
         </axis>
@@ -230,7 +287,7 @@
       <link name="front_left_wheel_link">
       
         <inertial>
-          <pose>0.65 0.3025 0.0 -1.5707 0.0 0.0</pose>
+          <pose>0 0 0 0 0 0</pose>
           <inertia>
             <ixx>0.007171</ixx>
             <ixy>0</ixy>
@@ -244,7 +301,7 @@
         
         
         <collision name="front_left_wheel_collision">
-          <pose>0.65 0.3025 0.0 -1.5707 0.0 0.0</pose>
+          <pose>0.4775 0.2325 0 -1.5707 0 0</pose>
           <geometry>
             <cylinder>
               <radius>0.165</radius>
@@ -254,7 +311,7 @@
         </collision>
         
         <visual name="front_left_wheel_visual">
-          <pose>0.65 0.3025 0.0 -1.5707 0.0 0.0</pose>
+          <pose>0.4775 0.2325 0 -1.5707 0 0</pose>
           <geometry>
             <cylinder>
               <radius>0.165</radius>
@@ -266,17 +323,14 @@
       
       <!--sensor-->
       <joint name="scan_joint" type="fixed">
-        <parent>base_link</parent>
+        <parent>chassis_link</parent>
         <child>base_scan</child>
-        <pose>0.325 0.115 0.35 0.0 0.0 0.0</pose>
-        <axis>
-          <xyz>0 0 1</xyz>
-        </axis>
+        <pose>0.2388 0.08 0.270 0 0 0</pose>
       </joint>
   
       <link name="base_scan">
         <inertial>
-          <pose>0.325 0.115 0.35 0.0 0.0 0.0</pose>
+          <pose>0.2388 0.08 0.270 0 0 0</pose>
           <inertia>
             <ixx>0.001</ixx>
             <ixy>0.000</ixy>
@@ -289,7 +343,7 @@
         </inertial>
 
         <collision name="lidar_sensor_collision">
-          <pose>0.325 0.115 0.35 0.0 0.0 0.0</pose>
+          <pose>0.2388 0.08 0.270 0 0 0</pose>
           <geometry>
             <cylinder>
               <radius>0.0508</radius>
@@ -299,7 +353,7 @@
         </collision>
 
         <visual name="lidar_sensor_visual">
-          <pose>0.325 0.115 0.35 0.0 0.0 0.0</pose>
+          <pose>0.2388 0.08 0.270 0 0 0</pose>
           <geometry>
             <mesh>
               <uri>model://turtlebot3_waffle/meshes/lds.dae</uri>
@@ -312,7 +366,7 @@
         <sensor name="lidar_sensor" type="ray">
           <always_on>true</always_on>
           <visualize>true</visualize>
-          <pose>0.325 0.115 0.35 0.0 0.0 0.0</pose>
+          <pose>0.2388 0.08 0.270 0 0 0</pose>
           <update_rate>5</update_rate>
           <ray>
             <scan>
@@ -391,14 +445,12 @@
         <odometry_frame>odom</odometry_frame>
         <robot_base_frame>base_link</robot_base_frame>
         
-        <odometry_source>2</odometry_source>
-        
+         <odometry_source>2</odometry_source>
 
       </plugin>
-      
 
 
     </model>
 
-
+  </world>
 </sdf>
