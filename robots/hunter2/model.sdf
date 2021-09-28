@@ -65,7 +65,7 @@
                 <geometry>
                     <cylinder>
                         <radius>0.165</radius>
-                        <length>0.050</length>
+                        <length>0.001</length>
                     </cylinder>
                 </geometry>
             </collision>
@@ -74,7 +74,7 @@
                 <geometry>
                     <cylinder>
                         <radius>0.165</radius>
-                        <length>0.050</length>
+                        <length>0.001</length>
                     </cylinder>
                 </geometry>
             </visual>
@@ -109,7 +109,7 @@
                 <geometry>
                     <cylinder>
                         <radius>0.165</radius>
-                        <length>0.050</length>
+                        <length>0.001</length>
                     </cylinder>
                 </geometry>
             </collision>
@@ -118,7 +118,7 @@
                 <geometry>
                     <cylinder>
                         <radius>0.165</radius>
-                        <length>0.050</length>
+                        <length>0.001</length>
                     </cylinder>
                 </geometry>
             </visual>
@@ -176,14 +176,14 @@
             <inertial>
                 <pose>0 0 0 -1.5707 0 0</pose>
                 <inertia>
-                    <ixx>0.000681</ixx>
+                    <ixx>0.1</ixx>
                     <ixy>0</ixy>
                     <ixz>0</ixz>
-                    <iyy>0.001361</iyy>
+                    <iyy>0.1</iyy>
                     <iyz>0</iyz>
-                    <izz>0.000681</izz>
+                    <izz>0.1</izz>
                 </inertia>
-                <mass>0.1</mass>
+                <mass>1</mass>
             </inertial>
             <pose>0.65 -0.3025 0 0 -0 0</pose>
             <visual name='front_right_wheel_visual'>
@@ -191,7 +191,7 @@
                 <geometry>
                     <cylinder>
                         <radius>0.165</radius>
-                        <length>0.05</length>
+                        <length>0.001</length>
                     </cylinder>
                 </geometry>
             </visual>
@@ -200,7 +200,7 @@
                 <geometry>
                     <cylinder>
                         <radius>0.165</radius>
-                        <length>0.05</length>
+                        <length>0.001</length>
                     </cylinder>
                 </geometry>
             </collision>
@@ -258,14 +258,14 @@
             <inertial>
                 <pose>0 0 0 -1.5707 0 0</pose>
                 <inertia>
-                    <ixx>0.000681</ixx>
+                    <ixx>0.1</ixx>
                     <ixy>0</ixy>
                     <ixz>0</ixz>
-                    <iyy>0.001361</iyy>
+                    <iyy>0.1</iyy>
                     <iyz>0</iyz>
-                    <izz>0.000681</izz>
+                    <izz>0.1</izz>
                 </inertia>
-                <mass>0.1</mass>
+                <mass>1</mass>
             </inertial>
             <pose>0.65 0.3025 0 0 -0 0</pose>
             <visual name='front_left_wheel_visual'>
@@ -273,7 +273,7 @@
                 <geometry>
                     <cylinder>
                         <radius>0.165</radius>
-                        <length>0.05</length>
+                        <length>0.001</length>
                     </cylinder>
                 </geometry>
             </visual>
@@ -282,7 +282,7 @@
                 <geometry>
                     <cylinder>
                         <radius>0.165</radius>
-                        <length>0.05</length>
+                        <length>0.001</length>
                     </cylinder>
                 </geometry>
             </collision>
@@ -303,14 +303,14 @@
             <inertial>
                 <pose>0.325 0.115 0.35 0.0 0.0 0.0</pose>
                 <inertia>
-                    <ixx>0.001</ixx>
-                    <ixy>0.000</ixy>
-                    <ixz>0.000</ixz>
-                    <iyy>0.001</iyy>
-                    <iyz>0.000</iyz>
-                    <izz>0.001</izz>
+                    <ixx>0.1</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.1</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.1</izz>
                 </inertia>
-                <mass>0.125</mass>
+                <mass>1</mass>
             </inertial>
 
             <collision name="lidar_sensor_collision">
