@@ -8,7 +8,7 @@
       <link name="base_link">
 
         <inertial>
-          <pose>0.325 0.0 0.27 0.0 0.0 0.0</pose>
+          <pose>0.325 0.0 0.135 0.0 0.0 0.0</pose>
           <inertia>
             <ixx>2.288641</ixx>
             <ixy>0</ixy>
@@ -56,14 +56,13 @@
           </inertia>
           <mass>3.0</mass>
         </inertial>
-        
-        
+
         <collision name="rear_left_wheel_collision">
           <pose>0.0 0.3025 0.0 -1.5707 0.0 0.0</pose>
           <geometry>
             <cylinder>
               <radius>0.165</radius>
-              <length>0.140</length>
+              <length>0.050</length>
             </cylinder>
           </geometry>
         </collision>
@@ -73,7 +72,7 @@
           <geometry>
             <cylinder>
               <radius>0.165</radius>
-              <length>0.140</length>
+              <length>0.050</length>
             </cylinder>
           </geometry>
         </visual>
@@ -87,8 +86,8 @@
          <xyz>0 1 0</xyz>
         </axis>
       </joint>
-      
-      
+
+
       <!--rear right wheel-->
       <link name="rear_right_wheel_link">
       
@@ -104,14 +103,13 @@
           </inertia>
           <mass>3.0</mass>
         </inertial>
-        
-        
+
         <collision name="rear_right_wheel_collision">
           <pose>0.0 -0.3025 0.0 -1.5707 0.0 0.0</pose>
           <geometry>
             <cylinder>
               <radius>0.165</radius>
-              <length>0.140</length>
+              <length>0.050</length>
             </cylinder>
           </geometry>
         </collision>
@@ -121,12 +119,12 @@
           <geometry>
             <cylinder>
               <radius>0.165</radius>
-              <length>0.140</length>
+              <length>0.050</length>
             </cylinder>
           </geometry>
         </visual>
       </link>
-      
+
       <joint name="rear_right_wheel_joint" type="revolute">
         <parent>base_link</parent>
         <child>rear_right_wheel_link</child>
@@ -135,7 +133,8 @@
          <xyz>0 1 0</xyz>
         </axis>
       </joint>
-      
+
+
       <!--front right-->
       <joint name="front_right_steer_joint" type="revolute">
         <parent>base_link</parent>
@@ -149,10 +148,9 @@
          </limit>
         </axis>
       </joint>
-      
+
       <link name="front_right_steer_link"/>
-      
-            
+
       <joint name="front_right_wheel_joint" type="revolute">
         <parent>front_right_steer_link</parent>
         <child>front_right_wheel_link</child>
@@ -161,30 +159,28 @@
          <xyz>0 1 0</xyz>
         </axis>
       </joint>
-      
-    
+
       <link name="front_right_wheel_link">
-      
+
         <inertial>
           <pose>0.65 -0.3025 0.0 -1.5707 0.0 0.0</pose>
           <inertia>
-            <ixx>0.007171</ixx>
+            <ixx>0.000681</ixx>
             <ixy>0</ixy>
             <ixz>0</ixz>
             <iyy>0.001361</iyy>
             <iyz>0</iyz>
-            <izz>0.007171</izz>
+            <izz>0.000681</izz>
           </inertia>
           <mass>0.1</mass>
         </inertial>
-        
-        
+
         <collision name="front_right_wheel_collision">
           <pose>0.65 -0.3025 0.0 -1.5707 0.0 0.0</pose>
           <geometry>
             <cylinder>
               <radius>0.165</radius>
-              <length>0.140</length>
+              <length>0.050</length>
             </cylinder>
           </geometry>
         </collision>
@@ -194,7 +190,7 @@
           <geometry>
             <cylinder>
               <radius>0.165</radius>
-              <length>0.140</length>
+              <length>0.050</length>
             </cylinder>
           </geometry>
         </visual>
@@ -225,30 +221,28 @@
          <xyz>0 1 0</xyz>
         </axis>
       </joint>
-      
-      
+
       <link name="front_left_wheel_link">
       
         <inertial>
           <pose>0.65 0.3025 0.0 -1.5707 0.0 0.0</pose>
           <inertia>
-            <ixx>0.007171</ixx>
+            <ixx>0.000681</ixx>
             <ixy>0</ixy>
             <ixz>0</ixz>
             <iyy>0.001361</iyy>
             <iyz>0</iyz>
-            <izz>0.007171</izz>
+            <izz>0.000681</izz>
           </inertia>
           <mass>0.1</mass>
         </inertial>
-        
-        
+
         <collision name="front_left_wheel_collision">
           <pose>0.65 0.3025 0.0 -1.5707 0.0 0.0</pose>
           <geometry>
             <cylinder>
               <radius>0.165</radius>
-              <length>0.140</length>
+              <length>0.050</length>
             </cylinder>
           </geometry>
         </collision>
@@ -258,12 +252,12 @@
           <geometry>
             <cylinder>
               <radius>0.165</radius>
-              <length>0.140</length>
+              <length>0.050</length>
             </cylinder>
           </geometry>
         </visual>
       </link>
-      
+
       <!--sensor-->
       <joint name="scan_joint" type="fixed">
         <parent>base_link</parent>
@@ -308,10 +302,9 @@
           </geometry>
         </visual>
 
-        <!--sensor name="hls_lfcd_lds" type="ray"-->
         <sensor name="lidar_sensor" type="ray">
           <always_on>true</always_on>
-          <visualize>true</visualize>
+          <visualize>false</visualize>
           <pose>0.325 0.115 0.35 0.0 0.0 0.0</pose>
           <update_rate>5</update_rate>
           <ray>
@@ -336,7 +329,6 @@
           </ray>
           <plugin name="laserscan_realistic_plugin" filename="libgazebo_ros_ray_sensor.so">
             <ros>
-                <!-- <namespace>/tb3</namespace> -->
                 <remapping>~/out:=scan</remapping>
             </ros>
             <output_type>sensor_msgs/LaserScan</output_type>
@@ -344,9 +336,7 @@
           </plugin>
         </sensor>
       </link>
-      
-      
-           
+
       <plugin name='ackermann_drive_plugin' filename='libgazebo_ros_ackermann_drive.so'>
 
         <ros>
@@ -385,20 +375,15 @@
         <!-- output -->
         <publish_odom>true</publish_odom>
         <publish_odom_tf>true</publish_odom_tf>
-        <publish_wheel_tf>true</publish_wheel_tf>
+        <publish_wheel_tf>false</publish_wheel_tf>
         <publish_distance>true</publish_distance>
 
         <odometry_frame>odom</odometry_frame>
         <robot_base_frame>base_link</robot_base_frame>
         
         <odometry_source>2</odometry_source>
-        
 
       </plugin>
-      
-
 
     </model>
-
-
 </sdf>
