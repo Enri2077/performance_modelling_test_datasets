@@ -2,388 +2,419 @@
 <sdf version="1.6">
 
 
-    <model name="hunter_v2"> 
-      <pose>0.0 0.0 0.7 0.0 0.0 0.0</pose>
-      
-      <link name="base_link">
+    <model name="hunter_v2">
+        <pose>0.0 0.0 0.7 0.0 0.0 0.0</pose>
 
-        <inertial>
-          <pose>0.325 0.0 0.135 0.0 0.0 0.0</pose>
-          <inertia>
-            <ixx>2.288641</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>5.103976</iyy>
-            <iyz>0</iyz>
-            <izz>3.431465</izz>
-          </inertia>
-          <mass>40.0</mass>
-        </inertial>
-
-        <collision name="base_link_collision">
-          <pose>0.325 0.0 0.135 0.0 0.0 0.0</pose>
-          <geometry>
-            <box>
-              <size>0.98 0.27 0.27</size>
-            </box>
-          </geometry>
-        </collision>
-
-        <visual name="base_link_visual">
-          <pose>0.325 0.0 0.135 0.0 0.0 0.0</pose>
-          <geometry>
-            <box>
-              <size>0.98 0.27 0.27</size>
-            </box>
-          </geometry>
-        </visual>
-
-      </link>
-
-      
-      <!--rear left wheel-->
-      <link name="rear_left_wheel_link">
-      
-        <inertial>
-          <pose>0.0 0.3025 0.0 -1.5707 0.0 0.0</pose>
-          <inertia>
-            <ixx>0.7171</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>0.1361</iyy>
-            <iyz>0</iyz>
-            <izz>0.7171</izz>
-          </inertia>
-          <mass>3.0</mass>
-        </inertial>
-
-        <collision name="rear_left_wheel_collision">
-          <pose>0.0 0.3025 0.0 -1.5707 0.0 0.0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.165</radius>
-              <length>0.050</length>
-            </cylinder>
-          </geometry>
-        </collision>
-        
-        <visual name="rear_left_wheel_visual">
-          <pose>0.0 0.3025 0.0 -1.5707 0.0 0.0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.165</radius>
-              <length>0.050</length>
-            </cylinder>
-          </geometry>
-        </visual>
-      </link>
-      
-      <joint name="rear_left_wheel_joint" type="revolute">
-        <parent>base_link</parent>
-        <child>rear_left_wheel_link</child>
-        <pose>0.0 0.3025 0.0 0.0 0.0 0.0</pose>
-        <axis>
-         <xyz>0 1 0</xyz>
-        </axis>
-      </joint>
+        <link name="base_link">
+            <inertial>
+                <pose>0.325 0.0 0.135 0.0 0.0 0.0</pose>
+                <inertia>
+                    <ixx>2.288641</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>5.103976</iyy>
+                    <iyz>0</iyz>
+                    <izz>3.431465</izz>
+                </inertia>
+                <mass>40.0</mass>
+            </inertial>
+            <collision name="base_link_collision">
+                <pose>0.325 0.0 0.135 0.0 0.0 0.0</pose>
+                <geometry>
+                    <box>
+                        <size>0.98 0.27 0.27</size>
+                    </box>
+                </geometry>
+            </collision>
+            <visual name="base_link_visual">
+                <pose>0.325 0.0 0.135 0.0 0.0 0.0</pose>
+                <geometry>
+                    <box>
+                        <size>0.98 0.27 0.27</size>
+                    </box>
+                </geometry>
+            </visual>
+        </link>
 
 
-      <!--rear right wheel-->
-      <link name="rear_right_wheel_link">
-      
-        <inertial>
-          <pose>0.0 -0.3025 0.0 -1.5707 0.0 0.0</pose>
-          <inertia>
-            <ixx>0.7171</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>0.1361</iyy>
-            <iyz>0</iyz>
-            <izz>0.7171</izz>
-          </inertia>
-          <mass>3.0</mass>
-        </inertial>
+        <!--rear left wheel-->
+        <joint name="rear_left_wheel_joint" type="revolute">
+            <parent>base_link</parent>
+            <child>rear_left_wheel_link</child>
+            <pose>0.0 0.3025 0.0 0.0 0.0 0.0</pose>
+            <axis>
+                <xyz>0 1 0</xyz>
+            </axis>
+        </joint>
 
-        <collision name="rear_right_wheel_collision">
-          <pose>0.0 -0.3025 0.0 -1.5707 0.0 0.0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.165</radius>
-              <length>0.050</length>
-            </cylinder>
-          </geometry>
-        </collision>
-        
-        <visual name="rear_right_wheel_visual">
-          <pose>0.0 -0.3025 0.0 -1.5707 0.0 0.0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.165</radius>
-              <length>0.050</length>
-            </cylinder>
-          </geometry>
-        </visual>
-      </link>
-
-      <joint name="rear_right_wheel_joint" type="revolute">
-        <parent>base_link</parent>
-        <child>rear_right_wheel_link</child>
-        <pose>0.0 -0.3025 0.0 0.0 0.0 0.0</pose>
-        <axis>
-         <xyz>0 1 0</xyz>
-        </axis>
-      </joint>
+        <link name="rear_left_wheel_link">
+            <inertial>
+                <pose>0.0 0.3025 0.0 -1.5707 0.0 0.0</pose>
+                <inertia>
+                    <ixx>0.7171</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.1361</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.7171</izz>
+                </inertia>
+                <mass>3.0</mass>
+            </inertial>
+            <collision name="rear_left_wheel_collision">
+                <pose>0.0 0.3025 0.0 -1.5707 0.0 0.0</pose>
+                <geometry>
+                    <cylinder>
+                        <radius>0.165</radius>
+                        <length>0.050</length>
+                    </cylinder>
+                </geometry>
+            </collision>
+            <visual name="rear_left_wheel_visual">
+                <pose>0.0 0.3025 0.0 -1.5707 0.0 0.0</pose>
+                <geometry>
+                    <cylinder>
+                        <radius>0.165</radius>
+                        <length>0.050</length>
+                    </cylinder>
+                </geometry>
+            </visual>
+        </link>
 
 
-      <!--front right-->
-      <joint name="front_right_steer_joint" type="revolute">
-        <parent>base_link</parent>
-        <child>front_right_steer_link</child>
-        <pose>0.65 -0.3025 0.0 0.0 0.0 0.0</pose>
-        <axis>
-         <xyz>0 0 1</xyz>
-         <limit>
-           <lower>-0.6</lower>
-           <upper>0.6</upper>
-         </limit>
-        </axis>
-      </joint>
+        <!--rear right wheel-->
+        <joint name="rear_right_wheel_joint" type="revolute">
+            <parent>base_link</parent>
+            <child>rear_right_wheel_link</child>
+            <pose>0.0 -0.3025 0.0 0.0 0.0 0.0</pose>
+            <axis>
+                <xyz>0 1 0</xyz>
+            </axis>
+        </joint>
 
-      <link name="front_right_steer_link"/>
+        <link name="rear_right_wheel_link">
+            <inertial>
+                <pose>0.0 -0.3025 0.0 -1.5707 0.0 0.0</pose>
+                <inertia>
+                    <ixx>0.7171</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.1361</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.7171</izz>
+                </inertia>
+                <mass>3.0</mass>
+            </inertial>
+            <collision name="rear_right_wheel_collision">
+                <pose>0.0 -0.3025 0.0 -1.5707 0.0 0.0</pose>
+                <geometry>
+                    <cylinder>
+                        <radius>0.165</radius>
+                        <length>0.050</length>
+                    </cylinder>
+                </geometry>
+            </collision>
+            <visual name="rear_right_wheel_visual">
+                <pose>0.0 -0.3025 0.0 -1.5707 0.0 0.0</pose>
+                <geometry>
+                    <cylinder>
+                        <radius>0.165</radius>
+                        <length>0.050</length>
+                    </cylinder>
+                </geometry>
+            </visual>
+        </link>
 
-      <joint name="front_right_wheel_joint" type="revolute">
-        <parent>front_right_steer_link</parent>
-        <child>front_right_wheel_link</child>
-        <pose>0.65 -0.3025 0.0 0.0 0.0 0.0</pose>
-        <axis>
-         <xyz>0 1 0</xyz>
-        </axis>
-      </joint>
 
-      <link name="front_right_wheel_link">
+        <!--front right-->
+        <joint name='front_right_steer_joint' type='revolute'>
+            <parent>base_link</parent>
+            <child>front_right_steer_link</child>
+            <pose>0 0 0 0 -0 0</pose>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-0.7853981633974483</lower>
+                    <upper>0.7853981633974483</upper>
+                    <effort>-1</effort>
+                    <velocity>-1</velocity>
+                </limit>
+            </axis>
+        </joint>
 
-        <inertial>
-          <pose>0.65 -0.3025 0.0 -1.5707 0.0 0.0</pose>
-          <inertia>
-            <ixx>0.000681</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>0.001361</iyy>
-            <iyz>0</iyz>
-            <izz>0.000681</izz>
-          </inertia>
-          <mass>0.1</mass>
-        </inertial>
+        <link name='front_right_steer_link'>
+            <inertial>
+                <pose>0 0 0 0 -0 0</pose>
+                <inertia>
+                    <ixx>0.1</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.1</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.1</izz>
+                </inertia>
+                <mass>1</mass>
+            </inertial>
+            <pose>0.65 -0.3025 0 0 -0 0</pose>
+        </link>
 
-        <collision name="front_right_wheel_collision">
-          <pose>0.65 -0.3025 0.0 -1.5707 0.0 0.0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.165</radius>
-              <length>0.050</length>
-            </cylinder>
-          </geometry>
-        </collision>
-        
-        <visual name="front_right_wheel_visual">
-          <pose>0.65 -0.3025 0.0 -1.5707 0.0 0.0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.165</radius>
-              <length>0.050</length>
-            </cylinder>
-          </geometry>
-        </visual>
-      </link>
-      
-       
-      <!--front left-->
-      <joint name="front_left_steer_joint" type="revolute">
-        <parent>base_link</parent>
-        <child>front_left_steer_link</child>
-        <pose>0.65 0.3025 0.0 0.0 0.0 0.0</pose>
-        <axis>
-         <xyz>0 0 1</xyz>
-         <limit>
-           <lower>-0.6</lower>
-           <upper>0.6</upper>
-         </limit>
-        </axis>
-      </joint>
-      
-      <link name="front_left_steer_link"/>
-      
-      <joint name="front_left_wheel_joint" type="revolute">
-        <parent>front_left_steer_link</parent>
-        <child>front_left_wheel_link</child>
-        <pose>0.65 0.3025 0.0 0.0 0.0 0.0</pose>
-        <axis>
-         <xyz>0 1 0</xyz>
-        </axis>
-      </joint>
+        <joint name='front_right_wheel_joint' type='revolute'>
+            <parent>front_right_steer_link</parent>
+            <child>front_right_wheel_link</child>
+            <pose>0 0 0 0 -0 0</pose>
+            <axis>
+                <xyz>0 1 0</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                    <effort>-1</effort>
+                    <velocity>-1</velocity>
+                </limit>
+            </axis>
+        </joint>
 
-      <link name="front_left_wheel_link">
-      
-        <inertial>
-          <pose>0.65 0.3025 0.0 -1.5707 0.0 0.0</pose>
-          <inertia>
-            <ixx>0.000681</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>0.001361</iyy>
-            <iyz>0</iyz>
-            <izz>0.000681</izz>
-          </inertia>
-          <mass>0.1</mass>
-        </inertial>
+        <link name='front_right_wheel_link'>
+            <inertial>
+                <pose>0 0 0 -1.5707 0 0</pose>
+                <inertia>
+                    <ixx>0.000681</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.001361</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.000681</izz>
+                </inertia>
+                <mass>0.1</mass>
+            </inertial>
+            <pose>0.65 -0.3025 0 0 -0 0</pose>
+            <visual name='front_right_wheel_visual'>
+                <pose>0 0 0 -1.5707 0 0</pose>
+                <geometry>
+                    <cylinder>
+                        <radius>0.165</radius>
+                        <length>0.05</length>
+                    </cylinder>
+                </geometry>
+            </visual>
+            <collision name='front_right_wheel_collision'>
+                <pose>0 0 0 -1.5707 0 0</pose>
+                <geometry>
+                    <cylinder>
+                        <radius>0.165</radius>
+                        <length>0.05</length>
+                    </cylinder>
+                </geometry>
+            </collision>
+        </link>
 
-        <collision name="front_left_wheel_collision">
-          <pose>0.65 0.3025 0.0 -1.5707 0.0 0.0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.165</radius>
-              <length>0.050</length>
-            </cylinder>
-          </geometry>
-        </collision>
-        
-        <visual name="front_left_wheel_visual">
-          <pose>0.65 0.3025 0.0 -1.5707 0.0 0.0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.165</radius>
-              <length>0.050</length>
-            </cylinder>
-          </geometry>
-        </visual>
-      </link>
 
-      <!--sensor-->
-      <joint name="scan_joint" type="fixed">
-        <parent>base_link</parent>
-        <child>base_scan</child>
-        <pose>0.325 0.115 0.35 0.0 0.0 0.0</pose>
-        <axis>
-          <xyz>0 0 1</xyz>
-        </axis>
-      </joint>
-  
-      <link name="base_scan">
-        <inertial>
-          <pose>0.325 0.115 0.35 0.0 0.0 0.0</pose>
-          <inertia>
-            <ixx>0.001</ixx>
-            <ixy>0.000</ixy>
-            <ixz>0.000</ixz>
-            <iyy>0.001</iyy>
-            <iyz>0.000</iyz>
-            <izz>0.001</izz>
-          </inertia>
-          <mass>0.125</mass>
-        </inertial>
+        <!--front left-->
+        <joint name='front_left_steer_joint' type='revolute'>
+            <parent>base_link</parent>
+            <child>front_left_steer_link</child>
+            <pose>0 0 0 0 -0 0</pose>
+            <axis>
+                <xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-0.7853981633974483</lower>
+                    <upper>0.7853981633974483</upper>
+                    <effort>-1</effort>
+                    <velocity>-1</velocity>
+                </limit>
+            </axis>
+        </joint>
 
-        <collision name="lidar_sensor_collision">
-          <pose>0.325 0.115 0.35 0.0 0.0 0.0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.0508</radius>
-              <length>0.055</length>
-            </cylinder>
-          </geometry>
-        </collision>
+        <link name='front_left_steer_link'>
+            <inertial>
+                <pose>0 0 0 0 -0 0</pose>
+                <inertia>
+                    <ixx>0.1</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.1</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.1</izz>
+                </inertia>
+                <mass>1</mass>
+            </inertial>
+            <pose>0.65 0.3025 0 0 -0 0</pose>
+        </link>
 
-        <visual name="lidar_sensor_visual">
-          <pose>0.325 0.115 0.35 0.0 0.0 0.0</pose>
-          <geometry>
-            <mesh>
-              <uri>model://turtlebot3_waffle/meshes/lds.dae</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </visual>
+        <joint name='front_left_wheel_joint' type='revolute'>
+            <parent>front_left_steer_link</parent>
+            <child>front_left_wheel_link</child>
+            <pose>0 0 0 0 -0 0</pose>
+            <axis>
+                <xyz>0 1 0</xyz>
+                <limit>
+                    <lower>-1e+16</lower>
+                    <upper>1e+16</upper>
+                    <effort>-1</effort>
+                    <velocity>-1</velocity>
+                </limit>
+            </axis>
+        </joint>
 
-        <sensor name="lidar_sensor" type="ray">
-          <always_on>true</always_on>
-          <visualize>false</visualize>
-          <pose>0.325 0.115 0.35 0.0 0.0 0.0</pose>
-          <update_rate>5</update_rate>
-          <ray>
-            <scan>
-              <horizontal>
-                <samples>360</samples>
-                <resolution>1.000000</resolution>
-                <min_angle>0.000000</min_angle>
-                <max_angle>6.280000</max_angle>
-              </horizontal>
-            </scan>
-            <range>
-              <min>0.20000</min>
-              <max>30</max>
-              <resolution>0.015000</resolution>
-            </range>
-            <noise>
-              <type>gaussian</type>
-              <mean>0.0</mean>
-              <stddev>0.01</stddev>
-            </noise>
-          </ray>
-          <plugin name="laserscan_realistic_plugin" filename="libgazebo_ros_ray_sensor.so">
+        <link name='front_left_wheel_link'>
+            <inertial>
+                <pose>0 0 0 -1.5707 0 0</pose>
+                <inertia>
+                    <ixx>0.000681</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.001361</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.000681</izz>
+                </inertia>
+                <mass>0.1</mass>
+            </inertial>
+            <pose>0.65 0.3025 0 0 -0 0</pose>
+            <visual name='front_left_wheel_visual'>
+                <pose>0 0 0 -1.5707 0 0</pose>
+                <geometry>
+                    <cylinder>
+                        <radius>0.165</radius>
+                        <length>0.05</length>
+                    </cylinder>
+                </geometry>
+            </visual>
+            <collision name='front_left_wheel_collision'>
+                <pose>0 0 0 -1.5707 0 0</pose>
+                <geometry>
+                    <cylinder>
+                        <radius>0.165</radius>
+                        <length>0.05</length>
+                    </cylinder>
+                </geometry>
+            </collision>
+        </link>
+
+
+        <!--sensor-->
+        <joint name="scan_joint" type="fixed">
+            <parent>base_link</parent>
+            <child>base_scan</child>
+            <pose>0.325 0.115 0.35 0.0 0.0 0.0</pose>
+            <axis>
+                <xyz>0 0 1</xyz>
+            </axis>
+        </joint>
+
+        <link name="base_scan">
+            <inertial>
+                <pose>0.325 0.115 0.35 0.0 0.0 0.0</pose>
+                <inertia>
+                    <ixx>0.001</ixx>
+                    <ixy>0.000</ixy>
+                    <ixz>0.000</ixz>
+                    <iyy>0.001</iyy>
+                    <iyz>0.000</iyz>
+                    <izz>0.001</izz>
+                </inertia>
+                <mass>0.125</mass>
+            </inertial>
+
+            <collision name="lidar_sensor_collision">
+                <pose>0.325 0.115 0.35 0.0 0.0 0.0</pose>
+                <geometry>
+                    <cylinder>
+                        <radius>0.0508</radius>
+                        <length>0.055</length>
+                    </cylinder>
+                </geometry>
+            </collision>
+
+            <visual name="lidar_sensor_visual">
+                <pose>0.325 0.115 0.35 0.0 0.0 0.0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://turtlebot3_waffle/meshes/lds.dae</uri>
+                        <scale>0.001 0.001 0.001</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+
+            <sensor name="lidar_sensor" type="ray">
+                <always_on>true</always_on>
+                <visualize>false</visualize>
+                <pose>0.325 0.115 0.35 0.0 0.0 0.0</pose>
+                <update_rate>5</update_rate>
+                <ray>
+                    <scan>
+                        <horizontal>
+                            <samples>360</samples>
+                            <resolution>1.000000</resolution>
+                            <min_angle>0.000000</min_angle>
+                            <max_angle>6.280000</max_angle>
+                        </horizontal>
+                    </scan>
+                    <range>
+                        <min>0.20000</min>
+                        <max>30</max>
+                        <resolution>0.015000</resolution>
+                    </range>
+                    <noise>
+                        <type>gaussian</type>
+                        <mean>0.0</mean>
+                        <stddev>0.01</stddev>
+                    </noise>
+                </ray>
+                <plugin name="laserscan_realistic_plugin" filename="libgazebo_ros_ray_sensor.so">
+                    <ros>
+                        <remapping>~/out:=scan</remapping>
+                    </ros>
+                    <output_type>sensor_msgs/LaserScan</output_type>
+                    <frame_name>base_scan</frame_name>
+                </plugin>
+            </sensor>
+        </link>
+
+        <plugin name='ackermann_drive_plugin' filename='libgazebo_ros_ackermann_drive.so'>
+
             <ros>
-                <remapping>~/out:=scan</remapping>
+                <remapping>distance:=distance_demo</remapping>
             </ros>
-            <output_type>sensor_msgs/LaserScan</output_type>
-            <frame_name>base_scan</frame_name>
-          </plugin>
-        </sensor>
-      </link>
 
-      <plugin name='ackermann_drive_plugin' filename='libgazebo_ros_ackermann_drive.so'>
+            <update_rate>100.0</update_rate>
 
-        <ros>
-          <remapping>distance:=distance_demo</remapping>
-        </ros>
+            <!-- wheels -->
+            <front_left_joint>front_left_wheel_joint</front_left_joint>
+            <front_right_joint>front_left_wheel_joint</front_right_joint>
+            <rear_left_joint>rear_left_wheel_joint</rear_left_joint>
+            <rear_right_joint>rear_right_wheel_joint</rear_right_joint>
+            <left_steering_joint>front_left_steer_joint</left_steering_joint>
+            <right_steering_joint>front_right_steer_joint</right_steering_joint>
+            <!--steering_wheel_joint>steering_joint</steering_wheel_joint-->
 
-        <update_rate>100.0</update_rate>
+            <!-- Max absolute steer angle for tyre in radians-->
+            <!-- Any cmd_vel angular z greater than this would be capped -->
+            <max_steer>0.6458</max_steer>
 
-        <!-- wheels -->
-        <front_left_joint>front_left_wheel_joint</front_left_joint>
-        <front_right_joint>front_left_wheel_joint</front_right_joint>
-        <rear_left_joint>rear_left_wheel_joint</rear_left_joint>
-        <rear_right_joint>rear_right_wheel_joint</rear_right_joint>
-        <left_steering_joint>front_left_steer_joint</left_steering_joint>
-        <right_steering_joint>front_right_steer_joint</right_steering_joint>
-        <!--steering_wheel_joint>steering_joint</steering_wheel_joint-->
+            <!-- Max absolute steering angle of steering wheel -->
+            <max_steering_angle>7.85</max_steering_angle>
 
-        <!-- Max absolute steer angle for tyre in radians-->
-        <!-- Any cmd_vel angular z greater than this would be capped -->
-        <max_steer>0.6458</max_steer>
+            <!-- Max absolute linear speed in m/s -->
+            <max_speed>20</max_speed>
 
-        <!-- Max absolute steering angle of steering wheel -->
-        <max_steering_angle>7.85</max_steering_angle>
+            <!-- PID tuning -->
+            <left_steering_pid_gain>180 0 30</left_steering_pid_gain>
+            <left_steering_i_range>0 0</left_steering_i_range>
+            <right_steering_pid_gain>180 0 30</right_steering_pid_gain>
+            <right_steering_i_range>0 0</right_steering_i_range>
+            <linear_velocity_pid_gain>1000 0 1</linear_velocity_pid_gain>
+            <linear_velocity_i_range>0 0</linear_velocity_i_range>
 
-        <!-- Max absolute linear speed in m/s -->
-        <max_speed>20</max_speed>
+            <!-- output -->
+            <publish_odom>true</publish_odom>
+            <publish_odom_tf>true</publish_odom_tf>
+            <publish_wheel_tf>true</publish_wheel_tf>
+            <publish_distance>true</publish_distance>
 
-        <!-- PID tuning -->
-        <left_steering_pid_gain>180 0 30</left_steering_pid_gain>
-        <left_steering_i_range>0 0</left_steering_i_range>
-        <right_steering_pid_gain>180 0 30</right_steering_pid_gain>
-        <right_steering_i_range>0 0</right_steering_i_range>
-        <linear_velocity_pid_gain>1000 0 1</linear_velocity_pid_gain>
-        <linear_velocity_i_range>0 0</linear_velocity_i_range>
+            <odometry_frame>odom</odometry_frame>
+            <robot_base_frame>base_link</robot_base_frame>
 
-        <!-- output -->
-        <publish_odom>true</publish_odom>
-        <publish_odom_tf>true</publish_odom_tf>
-        <publish_wheel_tf>false</publish_wheel_tf>
-        <publish_distance>true</publish_distance>
+            <odometry_source>2</odometry_source>
 
-        <odometry_frame>odom</odometry_frame>
-        <robot_base_frame>base_link</robot_base_frame>
-        
-        <odometry_source>2</odometry_source>
-
-      </plugin>
+        </plugin>
 
     </model>
 </sdf>
