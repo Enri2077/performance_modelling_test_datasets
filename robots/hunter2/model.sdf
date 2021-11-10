@@ -325,15 +325,15 @@
 
             <sensor name="lidar_sensor" type="ray">
                 <always_on>true</always_on>
-                <visualize>true</visualize>
-                <update_rate>5</update_rate>
+                <visualize>false</visualize>
+                <update_rate>10</update_rate>
                 <ray>
                     <scan>
                         <horizontal>
                             <samples>360</samples>
-                            <resolution>1.000000</resolution>
-                            <min_angle>0.000000</min_angle>
-                            <max_angle>6.280000</max_angle>
+                            <resolution>1.0</resolution>
+                            <min_angle>-3.141592653589793</min_angle>
+                            <max_angle>3.141592653589793</max_angle>
                         </horizontal>
                     </scan>
                     <range>
@@ -402,7 +402,16 @@
             <odometry_frame>odom</odometry_frame>
             <robot_base_frame>base_link</robot_base_frame>
 
+            <publish_ground_truth>true</publish_ground_truth>
+            <publish_ground_truth_tf>true</publish_ground_truth_tf>
+            <ground_truth_parent_frame>map</ground_truth_parent_frame>
+            <ground_truth_robot_base_frame>base_footprint_gt</ground_truth_robot_base_frame>
+
             <odometry_source>2</odometry_source>
+            <alpha1>0.07</alpha1>
+            <alpha2>0.07</alpha2>
+            <alpha3>0.02</alpha3>
+            <alpha4>0.02</alpha4>
 
         </plugin>
 

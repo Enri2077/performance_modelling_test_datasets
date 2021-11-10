@@ -76,22 +76,22 @@
 
       <sensor name="lidar_sensor" type="ray">
         <always_on>true</always_on>
-        <visualize>true</visualize>
+        <visualize>false</visualize>
         <pose>-0.064 0 0.121 0 0 0</pose>
-        <update_rate>5</update_rate>
+        <update_rate>10</update_rate>
         <ray>
           <scan>
             <horizontal>
               <samples>360</samples>
-              <resolution>1.000000</resolution>
+              <resolution>1.0</resolution>
               <min_angle>-3.14</min_angle>
               <max_angle>3.14</max_angle>
             </horizontal>
           </scan>
           <range>
-            <min>0.120000</min>
-            <max>3.5</max>
-            <resolution>0.015000</resolution>
+            <min>0.2</min>
+            <max>30.0</max>
+            <resolution>0.015</resolution>
           </range>
           <noise>
             <type>gaussian</type>
@@ -465,18 +465,6 @@
       </axis>
     </joint>
 
-    <plugin name="p3d_base_footprint" filename="libgazebo_ros_p3d.so">
-      <ros>
-        <namespace>/ground_truth/base_footprint</namespace>
-      </ros>
-      <always_on>true</always_on>
-      <update_rate>20.0</update_rate>
-      <body_name>base_footprint</body_name>
-      <frame_name>world</frame_name>
-      <xyz_offset>0 0 0</xyz_offset>
-      <rpy_offset>0 0 0</rpy_offset>
-    </plugin>
-
     <plugin name="diff_drive_plugin" filename="libgazebo_ros_diff_drive.so">
 
       <ros>
@@ -508,8 +496,9 @@
       <odometry_frame>odom</odometry_frame>
       <robot_base_frame>base_footprint</robot_base_frame>
 
+      <publish_ground_truth>true</publish_ground_truth>
       <publish_ground_truth_tf>true</publish_ground_truth_tf>
-      <ground_truth_parent_frame>odom_gt</ground_truth_parent_frame>
+      <ground_truth_parent_frame>map</ground_truth_parent_frame>
       <ground_truth_robot_base_frame>base_footprint_gt</ground_truth_robot_base_frame>
 
       <odometry_source>2</odometry_source>
